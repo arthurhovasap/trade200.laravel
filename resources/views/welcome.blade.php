@@ -41,7 +41,7 @@
                 <div class="title">Laravel 5</div>
                 <?php if(DB::connection()->getDatabaseName()){ 
                       echo "connected successfully to database ".DB::connection()->getDatabaseName();
-                    } ?>
+                } ?> 
             </div>
         </div>
     </body>
