@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Status;
 
 class StatusController extends Controller
 {
@@ -14,9 +15,10 @@ class StatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Status $model)
     {
-        //
+        $models = $model->getLatest();
+        return view('post.index', ['models'=>$models]);
     }
 
     /**

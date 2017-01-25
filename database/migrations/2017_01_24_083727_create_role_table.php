@@ -3,8 +3,9 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompaniesTable extends Migration
+class CreateRoleTable extends Migration
 {
+    protected $table = 'tbl_role';
     /**
      * Run the migrations.
      *
@@ -12,8 +13,11 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create($this->table, function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 50);
+            $table->string('description')->nullable();
+            $table->integer('score', 3);
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('companies');
+        Schema::drop($this->table);
     }
 }

@@ -11,6 +11,17 @@
 |
 */
 
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+get('post/index', ['as' => 'posts', 'uses'=>'PostController@index']);
+//get('auth/index', ['as' => 'posts', 'uses'=>'PostController@index']);
+
+get('status/index', ['as' => 'statuses', 'uses'=>'StatusController@index']);
+get('status/create', ['as' => 'statuses', 'uses'=>'StatusController@create']);

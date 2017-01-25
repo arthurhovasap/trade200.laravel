@@ -123,5 +123,7 @@ return [
         ],
 
     ],
+    
+    'prefix' => env('DB_TABLE_PREFIX', 'tbl_')
 
 ];
